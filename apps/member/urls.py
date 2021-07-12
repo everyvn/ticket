@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import *
-app_name = "product"
+app_name = "member"
 
 urlpatterns = [
     # 메인페이지용

@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     # Custom apps
-    'apps.account',
+    'apps.member',
     'apps.core',
     'apps.banner',
     'apps.product',
