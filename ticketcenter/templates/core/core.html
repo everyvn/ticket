@@ -2,6 +2,12 @@
 
 {% block content %}
 
-<h1>bye there!</h1>
+<h1>Hi there!</h1>
+{% for show in shows %}
+<img src="{{show.main_img.url}}">
+<h4>{{show.name}}</h4>
+<span>{{show.short_desc}}</span>
+<span>{{show.price}}원</span>
+{% endfor %}
 
 {% endblock %}
