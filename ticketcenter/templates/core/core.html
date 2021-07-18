@@ -1,13 +1,59 @@
 {% extends "index.html" %}
 
+{% block head %}
+<style>
+    .prod_table {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .prod_wrapper {
+        position: relative;
+        margin: 0 2rem;
+    }
+    .prod_info {
+        width: 150px;
+        position: absolute;
+        top: 10px;
+        left: calc(50% - 75px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .prod_category {
+        font-size: 1.2rem;
+        margin-top: 1rem;
+        margin-bottom: .5rem;
+        color: red;
+        border-bottom: 1px solid #2b2b2b;
+    }
+    .prod_info > span {
+        font-size: 0.8rem;
+        color: #2b2b2b;
+    }
+    .prod_info > h4 {
+        margin: 0.5rem 0;
+    }
+</style>
+{% endblock %}
+
+
 {% block content %}
 
-<h1>Hi there!</h1>
+<div class="prod_table">
 {% for show in shows %}
-<img src="{{show.main_img.url}}">
-<h4>{{show.name}}</h4>
-<span>{{show.short_desc}}</span>
-<span>{{show.price}}원</span>
+
+    <div class="prod_wrapper">
+        <img src="{{show.main_img.url}}">
+        <div class="prod_info">
+            <h5 class="prod_category">Sale</h5>
+            <span>{{show.short_desc}}</span>
+            <h4>{{show.name}}</h4>
+            <span>({{show.start_date|date:"Y.m.d"}}~{{show.end_date|date:"Y.m.d"}})</span>
+        </div>
+    </div>
+
 {% endfor %}
+</div>
 
 {% endblock %}

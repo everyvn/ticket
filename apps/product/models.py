@@ -60,12 +60,14 @@ class Show(BaseModel):
     tags = TaggableManager(blank=True)
     main_img = ProcessedImageField(upload_to = main_img_path,
                                    processors = [ResizeToFill(
-                                       width=800, height=300, upscale=True)],
+                                       width=228, height=340, upscale=True)],
                                    format='JPEG',
                                    options={'quality':90},
                                    blank=True,
                                    null=True)
     option = models.CharField(max_length=50, blank=True, null=True)
+    start_date = models.DateField(blank=True, null=True)
+    end_date = models.DateField(blank=True, null=True)
 
     def __str__(self):
         return self.name
