@@ -1,16 +1,153 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <title>Document</title>
     {% block head %}
     {% endblock %}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1280px;
+            padding: 0 .8rem;
+            margin: auto;
+        }
+        .main_header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 84px;
+            padding: 0 1rem;
+        }
+        .logo_wrapper, .minibanner_wrapper {
+            width: 280px;
+        }
+        .minibanner_wrapper {
+            position: relative;
+            max-height: 84px;
+            overflow: hidden;
+        }
+        .minibanner_controlbox {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: #efefef;
+            font-size: 8px;
+        }
+        .minibanner_controlbox > span > i{
+            padding: .5rem;
+        }
+        .search_wrapper {
+            position: relative;
+            height: 28px;
+        }
+        .main_searchbox {
+            width: 350px;
+            height: 36px;
+            padding-left: .8rem;
+            font-weight: bold;
+            color: red;
+            border: 1px solid red;
+            border-radius: 0;
+        }
+        .search_icon{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: calc(50% - 5px);
+            right: 8px;
+            color: red;
+        }
+        .search_icon > i::before {
+            width: 20px;
+            height: 20px;
+        }
+        .main_nav > .container{
+            display: flex;
+            align-items: center;
+        }
+        .main_nav > .container > ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 48px;
+            font-size: .8rem;
+            font-weight: bold;
+        }
+        .category {
+            background-color: red;
+            width: 70%;
+        }
+        .others {
+            background-color: #2b2b2b;
+            width: 30%;
+        }
+        .main_nav > .container > ul > li {
+            list-style: none;
+            color: white;
+            padding: .4rem 2.8rem;
+        }
+        .main_contents {
+            margin: 1.2rem auto;
+        }
+        .footer {
+            height: 200px;
+            width:100%;
+            background-color: #2b2b2b;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    {% block content %}
-    {% endblock %}
-    
+    <div class="container">
+        <div class="main_header">
+            <div class="logo_wrapper">Logo</div>
+            <div class="search_wrapper">
+                <input class="main_searchbox" type="text">
+                <span class="search_icon">
+                    <i class="fas fa-search"></i>
+                </span>
+            </div>
+            <div class="minibanner_wrapper">
+                <img src="{% static 'preset/mini_banner.jpeg' %}">
+                <div class="minibanner_controlbox">
+                    <span><i class="fas fa-chevron-left"></i></span>
+                    <span><i class="fas fa-chevron-right"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="main_nav">
+        <div class="container">
+            <ul class="category">
+                <li><i class="fas fa-bars"></i></li>
+                <li>뮤지컬</li>
+                <li>콘서트</li>
+                <li>연극</li>
+                <li>클래식/무용</li>
+                <li>스포츠</li>
+                <li>아동/가족</li>
+            </ul>
+            <ul class="others">
+                <li>로그인</li>
+                <li>이벤트</li>
+                <li>공연장</li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container main_contents">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="footer">
+        This is footer
+    </div>
 </body>
 </html>

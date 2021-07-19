@@ -2,6 +2,24 @@
 
 {% block head %}
 <style>
+    .cat_title_wrapper {
+        display: flex;
+        align-items: center;
+    }
+    .cat_title {
+        width: 150px;
+        font-size: .9rem;
+        font-weight: bold;
+        margin: 1.5rem auto;
+        background-color: red;
+        color: white;
+        text-align: center;
+        padding: .5rem 1.2rem;
+    }
+    .cat_title_wrapper > hr {
+        border: 1px solid #ebebeb;
+        width: 100%;
+    }
     .prod_table {
         display:flex;
         justify-content: center;
@@ -34,15 +52,35 @@
     .prod_info > h4 {
         margin: 0.5rem 0;
     }
+    .loadmore_wrapper {
+        border: 1px solid #efefef;
+        font-size: .8rem;
+        color: red;
+        padding: .8rem 1.5rem;
+        text-align: center;
+        width: 300px;
+        margin: 1.2rem auto 0;
+    }
+    .loadmore > i {
+        margin-right: .2rem;
+    }
+    .loadmore_wrapper:hover {
+        background-color: #2b2b2b;
+        color: white;
+    }
 </style>
 {% endblock %}
 
 
 {% block content %}
-
+<div class="cat_title_wrapper">
+    <h2 class="cat_title">Now Playing</h2>
+    <hr>
+</div>
 <div class="prod_table">
+    
 {% for show in shows %}
-
+    
     <div class="prod_wrapper">
         <img src="{{show.main_img.url}}">
         <div class="prod_info">
@@ -54,6 +92,9 @@
     </div>
 
 {% endfor %}
+</div>
+<div class="loadmore_wrapper">
+    <h4 class="loadmore"><i class="fas fa-plus"></i>더 불러오기</h4>
 </div>
 
 {% endblock %}
