@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'apps.banner',
     'apps.product',
     'apps.order',
+    'apps.seats',
     
 ]
 

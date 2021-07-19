@@ -65,7 +65,6 @@ class Show(BaseModel):
                                    options={'quality':90},
                                    blank=True,
                                    null=True)
-    option = models.CharField(max_length=50, blank=True, null=True)
     start_date = models.DateField(blank=True, null=True)
     end_date = models.DateField(blank=True, null=True)
 
