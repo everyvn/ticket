@@ -84,6 +84,7 @@
     <div class="prod_wrapper">
         <img src="{{show.main_img.url}}">
         <div class="prod_info">
+            <span class="show_id" style="display:none">{{show.id}}</span>
             <h5 class="prod_category">Sale</h5>
             <span>{{show.short_desc}}</span>
             <h4>{{show.name}}</h4>
@@ -97,4 +98,48 @@
     <h4 class="loadmore"><i class="fas fa-plus"></i>더 불러오기</h4>
 </div>
 
+<script>
+    let product_list = document.querySelector('.prod_table')
+    let prod_loader = document.querySelector('.loadmore')
+
+    prod_loader.addEventListener('click', function(){
+        let url = '{% url "api:additional_products" %}'
+        fetch(url, {
+            method:'POST',
+            headers:{
+                'Content-type':'application/json',
+                'X-CSRFToken':csrftoken
+            },
+            body.JSON.stringify({
+                product_list
+            })
+        })
+    }
+
+    
+
+    // 공연정보 더 불러오기 시작
+    // prod_loader.addEventListener('click', function(){
+    //     let current_list = document.querySelectorAll('.show_id')
+    //     url = "/api/addtional_products"
+    // fetch(url)
+    // .then((resp) => resp.json())
+    // .then(function(data){
+    //     var list = data
+    //     for (var i in list){
+    //         console.log(list[i])
+    //     }
+    // })
+    // .then(function(data){
+    //     console.log(product_list)
+    //     product_list.appendChild(`
+        
+        
+        
+    //     `)
+    // })
+    // })
+</script>
+
 {% endblock %}
+
